@@ -1,10 +1,19 @@
 // import { getEnv } from '@/config/get-env';
 import NextAuth from 'next-auth';
-import FacebookProvider from 'next-auth/providers/facebook';
+// import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
+
+
+// const options: any = {
+//   site: process.env.NEXTAUTH_URL,
+// };
+
+// const nA = (req: any, res: any) => NextAuth(req, res, options);
+// export default nA
+
 export default NextAuth({
   // https://next-auth.js.org/configuration/providers
   providers: [
@@ -16,6 +25,10 @@ export default NextAuth({
     //   clientId: getEnv('GOOGLE_CLIENT_ID'),
     //   clientSecret: getEnv('GOOGLE_CLIENT_SECRET'),
     // }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
   ],
 
   // The secret should be set to a reasonably long random string.
@@ -23,7 +36,7 @@ export default NextAuth({
   // a separate secret is defined explicitly for encrypting the JWT.
 
   // secret: getEnv('SECRET'),
-  secret: "topsecret",
+  secret: process.env.SECRET,
 
   session: {
     // Use JSON Web Tokens for session instead of database sessions.
