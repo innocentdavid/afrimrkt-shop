@@ -1,4 +1,4 @@
-import { getEnv } from '@/config/get-env';
+// import { getEnv } from '@/config/get-env';
 import NextAuth from 'next-auth';
 import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
@@ -12,16 +12,18 @@ export default NextAuth({
     //   clientId: getEnv('FACEBOOK_CLIENT_ID'),
     //   clientSecret: getEnv('FACEBOOK_CLIENT_SECRET'),
     // }),
-    GoogleProvider({
-      clientId: getEnv('GOOGLE_CLIENT_ID'),
-      clientSecret: getEnv('GOOGLE_CLIENT_SECRET'),
-    }),
+    // GoogleProvider({
+    //   clientId: getEnv('GOOGLE_CLIENT_ID'),
+    //   clientSecret: getEnv('GOOGLE_CLIENT_SECRET'),
+    // }),
   ],
 
   // The secret should be set to a reasonably long random string.
   // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
   // a separate secret is defined explicitly for encrypting the JWT.
-  secret: getEnv('SECRET'),
+
+  // secret: getEnv('SECRET'),
+  secret: "topsecret",
 
   session: {
     // Use JSON Web Tokens for session instead of database sessions.
